@@ -6,3 +6,15 @@
   font-family: "Silkscreen-Regular";
   src: url("./fonts/Silkscreen-Regular.ttf");
 }
+@font-face {
+  font-family: "Outfit";
+  src: url("./fonts/Outfit-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "Space-Grotesk";
+  src: url("./fonts/SpaceGrotesk-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "Dosis";
+  src: url("./fonts/Dosis-VariableFont_wght.ttf");
+}

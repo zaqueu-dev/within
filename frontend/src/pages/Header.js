@@ -27,38 +27,47 @@ export default function Header(p) {
 
   return (
     <>
-      <header className="flex fixed z-0 bg-gray-900 text-white h-16 items-center justify-between w-screen md:px-36 px-5 py-10 text-2xl select-none">
-        <Logo />
-        <Navlinks navigation={navigation} />
-      </header>
+      <div
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1705862457122-8352c27e95ed?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`,
+          height: "100vh",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <header className="flex fixed z-0 text-white h-16 items-center justify-between w-screen md:px-36 px-5 py-10 text-2xl select-none">
+          <Logo />
+          <Navlinks navigation={navigation} />
+        </header>
 
-      {/* opacity behind the modal */}
-      <div className="fixed inset-0 z-50 w-screen h-screen pointer-events-none">
-        <div
-          className={`w-screen h-screen pointer-events-none fixed transition ease-in ${
-            isOpened ? "opacity-80 bg-black" : ""
-          }`}
-        ></div>
+        {/* opacity behind the modal */}
+        <div className="fixed inset-0 z-50 w-screen h-screen pointer-events-none">
+          <div
+            className={`w-screen h-screen pointer-events-none fixed transition ease-in ${
+              isOpened ? "opacity-80 bg-black" : ""
+            }`}
+          ></div>
 
-        {/* blue modal */}
-        <div
-          className={`h-screen fixed w-2/3 bg-gray-900 transition ease-in  ${
-            isOpened ? "translate-x-0" : "-translate-x-full"
-          } flex flex-col items-center justify-start pt-20`}
-        >
-          <NavlinksModal
-            navigation={navigation}
-            toggleIsOpened={toggleIsOpened}
-          />
+          {/* blue modal */}
+          <div
+            className={`h-screen fixed w-2/3 bg-gray-900 transition ease-in  ${
+              isOpened ? "translate-x-0" : "-translate-x-full"
+            } flex flex-col items-center justify-start pt-20`}
+          >
+            <NavlinksModal
+              navigation={navigation}
+              toggleIsOpened={toggleIsOpened}
+            />
+          </div>
+          <div className="fixed right-6 text-white top-6 pointer-events-auto md:hidden items-center">
+            <button onClick={toggleIsOpened}>
+              <BurgerMenu isOpened={isOpened} />
+            </button>
+          </div>
         </div>
-        <div className="fixed right-6 text-white top-6 pointer-events-auto md:hidden items-center">
-          <button onClick={toggleIsOpened}>
-            <BurgerMenu isOpened={isOpened} />
-          </button>
-        </div>
+        {/* children */}
+        <div className="pt-24 px-10 md:px-40">{p.children}</div>
       </div>
-      {/* children */}
-      <div className="pt-24 px-10 md:px-40">{p.children}</div>
     </>
   );
 }
